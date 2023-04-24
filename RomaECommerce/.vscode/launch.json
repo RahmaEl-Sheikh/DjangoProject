@@ -1,0 +1,24 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        }
+    ]
+}
+// "configurations": [
+//     {
+
+//     "python.pythonPath": "/home/rahma/.venv/lib/python3.9/site-packages (3.14.0)",
+//     "python.autoComplete.extraPaths": ["/home/rahma/.venv/lib/python3.9/site-packages (from djangorestframework) (4.2)"]
+// }
+// ]
