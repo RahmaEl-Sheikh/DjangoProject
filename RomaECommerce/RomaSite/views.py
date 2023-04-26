@@ -62,17 +62,23 @@
 #     permission_classes = [permissions.IsAdminUser]
 
 from rest_framework import generics
-from .models import User
-from .serializers import UserSerializer
+from .models import *
+from .serializers import *
 
 class UserCreateView(generics.CreateAPIView):
+    queryset = User.objects.all()
     serializer_class = UserSerializer
 
 class UserDetailView(generics.RetrieveUpdateAPIView):
+    queryset = User.objects.all()
     serializer_class = UserSerializer
 
     def get_object(self):
         return self.request.user
+    
+class UserCreate(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token

@@ -35,8 +35,8 @@ INSTALLED_APPS = [
     # 'AccountManagement',
     'rest_framework',
     'rest_framework.authtoken',
-    'django_filters',
-    'rest_framework_simplejwt',
+    # 'django_filters',
+    # 'rest_framework_simplejwt',
     
     "django.contrib.admin",
     "django.contrib.auth",
@@ -143,9 +143,9 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ),
-    'DEFAULT_FILTER_BACKENDS': (
-        'django_filters.rest_framework.DjangoFilterBackend',
-    ),
+    # 'DEFAULT_FILTER_BACKENDS': (
+    #     'django_filters.rest_framework.DjangoFilterBackend',
+    # ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
 }
@@ -154,6 +154,8 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
+    'django.contrib.auth.backends.ModelBackend',
+   'rest_framework.authentication.TokenAuthentication',
 ]
 
 REST_FRAMEWORK_TOKEN_EXPIRE_MINUTES = 60

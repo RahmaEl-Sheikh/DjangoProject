@@ -64,3 +64,12 @@ class Payment(models.Model):
 
     def __str__(self):
         return self.card_number
+    
+class UserInformation(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone_number = models.CharField(max_length=20)
+
+    def _str_(self):
+        return self.name

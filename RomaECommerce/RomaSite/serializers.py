@@ -21,9 +21,15 @@
 #         model = OrderItem
 #         fields = '__all__'
 from rest_framework import serializers
-from RomaSite.models import User
+from .models import *
+from django.contrib.auth.models import User
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['id', 'username', 'email', 'address', 'phone_number']
+
+# class UserInformationSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = UserInformation
+#         fields = ['name', 'email', 'phone_number']

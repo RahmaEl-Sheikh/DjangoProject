@@ -42,6 +42,7 @@ from django.shortcuts import render
 from rest_framework import generics, filters
 from .models import Product
 from .serializers import ProductSerializer
+from rest_framework import authentication, permissions
 
 
 class ProductList(generics.ListAPIView):
@@ -65,6 +66,12 @@ class ProductDetail(generics.RetrieveAPIView):
     from rest_framework import generics
 from .models import Category
 from .serializers import CategorySerializer
+# ,OrderSerializer,Order
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.authtoken.models import Token
+from rest_framework.response import Response
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
 
 
 class CategoryList(generics.ListCreateAPIView):
@@ -75,3 +82,25 @@ class CategoryList(generics.ListCreateAPIView):
 class CategoryDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+
+# class OrderHistory(generics.ListAPIView):
+#     permission_classes = [permissions.IsAuthenticated]
+#     serializer_class = OrderSerializer
+
+#     def get_queryset(self):
+#         return Order.objects.filter(user=self.request.user)   
+class CustomAuthToken(ObtainAuthToken):
+    def post(self, request, *args, **kwargs):
+        response = super().post(request, *args, **kwargs)
+        token = Token.objects.get(key=response.data['token'])
+        return Response({
+            'token': token.key,
+            'user_id': token.user_id
+        })
+
+
+@api_view(['POST'])
+@permission_classes(())
+def register_user(request):
+    # your registration logic here
+    return Response(status=201)

@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 
+
 # urlpatterns = [
 #     path("admin/", admin.site.urls),
 #     path('api-auth/', include('rest_framework.urls'))
@@ -31,9 +32,11 @@ urlpatterns = [
     path('RomaSite/', include('RomaSite.urls')),
     path('RomaProducts/', include('RomaProducts.urls')),
     path('Checkout/', include('Checkout.urls')),
+    # path('api-token-auth/', generate_token, name='generate_token'),
     # path('AccountManagement/', include('AccountManagement.urls')),
 
 ]
+
 # from django.urls import path
 # from RomaSite.views import UserCreateView, UserDetailView
 

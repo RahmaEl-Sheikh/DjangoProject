@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from Checkout.models import OrderItem, Order
+from Checkout.models import OrderItem, Order,UserInformation
 
 class OrderItemSerializer(serializers.ModelSerializer):
     class Meta:
@@ -27,3 +27,8 @@ class PaymentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Payment
         fields = '__all__'
+
+class UserInformationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserInformation
+        fields = ['name', 'email', 'phone_number']
