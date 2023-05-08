@@ -13,16 +13,16 @@ from django.shortcuts import render
 #     queryset = Product.objects.all()
 #     serializer_class = ProductSerializer
 
-# from rest_framework import generics
+from rest_framework import generics
 # from .models import Category, Product
-# from .serializers import CategorySerializer,ProductSerializer
+from .serializers import CategorySerializer,ProductSerializer
 
 # class CategoryListView(generics.ListAPIView):
 #     queryset = Category.objects.all()
 #     serializer_class = CategorySerializer
 
-# class CategoryCreateView(generics.CreateAPIView):
-#     serializer_class = CategorySerializer
+class CategoryCreateView(generics.CreateAPIView):
+    serializer_class = CategorySerializer
 
 # class CategoryDetailView(generics.RetrieveUpdateDestroyAPIView):
 #     queryset = Category.objects.all()
@@ -33,8 +33,8 @@ from django.shortcuts import render
 #     serializer_class = ProductSerializer
 #     filterset_fields = ['category', 'name']
 
-# class ProductCreateView(generics.CreateAPIView):
-#     serializer_class = ProductSerializer
+class ProductCreateView(generics.CreateAPIView):
+    serializer_class = ProductSerializer
 
 # class ProductDetailView(generics.RetrieveUpdateDestroyAPIView):
 #     queryset = Product.objects.all()
